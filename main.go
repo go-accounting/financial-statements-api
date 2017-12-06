@@ -111,9 +111,9 @@ func main() {
 		log.Fatal(err)
 	}
 	router := httprouter.New()
-	router.GET("/charts-of-accounts/:coa/balance-sheet", handler(balance))
-	router.GET("/charts-of-accounts/:coa/income-statement", handler(incomeStatement))
-	router.GET("/charts-of-accounts/:coa/journal", handler(journal))
-	router.GET("/charts-of-accounts/:coa/accounts/:accountid/ledger", handler(ledger))
+	router.GET("/api/financial-statements/:coa/balance-sheet", handler(balance))
+	router.GET("/api/financial-statements/:coa/income-statement", handler(incomeStatement))
+	router.GET("/api/financial-statements/:coa/journal", handler(journal))
+	router.GET("/api/financial-statements/:coa/accounts/:accountid/ledger", handler(ledger))
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
